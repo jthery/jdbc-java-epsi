@@ -15,7 +15,7 @@ public class ConnectionFactory {
   }
 
   public Connection getConnection() throws SQLException {
-	  return getConnection("jdbc:mysql://localhost:3306/boutique?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC","root","root");
+	  return getConnection("jdbc:mysql://localhost:3306/boutique?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC&useSSL=false","root","root");
   }
 
   public static ConnectionFactory getInstance() {
