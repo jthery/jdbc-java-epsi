@@ -16,7 +16,7 @@ public class MarqueDAO implements IJdbcCrud<Marque, Long> {
 	public Marque findById(Long identifier) throws SQLException {
 		Connection conn = ConnectionFactory.getInstance().getConnection();
 		Statement st = conn.createStatement();
-		ResultSet rs = st.executeQuery("select id, libelle from marque where id =" + identifier);
+		ResultSet rs = st.executeQuery("SELECT id, libelle FROM marque WHERE id =" + identifier);
 		Marque marque = new Marque();
 		
 		try {
@@ -42,7 +42,7 @@ public class MarqueDAO implements IJdbcCrud<Marque, Long> {
 	public Collection<Marque> findAll() throws SQLException {
 		Connection conn = ConnectionFactory.getInstance().getConnection();
 		Statement st = conn.createStatement();
-		ResultSet rs = st.executeQuery("select id, libelle from marque");
+		ResultSet rs = st.executeQuery("SELECT id, libelle FROM marque");
 		Collection<Marque> ret = new ArrayList<>();
 		
 		try {
@@ -99,7 +99,7 @@ public class MarqueDAO implements IJdbcCrud<Marque, Long> {
 		Connection conn = ConnectionFactory.getInstance().getConnection();
 		try {
 
-			PreparedStatement ps = conn.prepareStatement("UPDATE marque SET libelle=? where id=?");
+			PreparedStatement ps = conn.prepareStatement("UPDATE marque SET libelle=? WHERE id=?");
 			
 			ps.setString(1, entity.getLibelle());
 			ps.setFloat(2, entity.getIdentifier());
